@@ -1,0 +1,27 @@
+trigger:
+- master
+
+pool: APYL  # Use the APYL pool
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+  displayName: 'Install Node.js'
+
+
+ # Prepare Analysis Configuration task
+- task: SonarQubePrepare@7
+  inputs:
+    SonarQube: 'apylteo_sonarqube'
+    scannerMode: 'cli'
+    configMode: 'manual'
+    cliProjectKey: 'sqa_fccc5970d3773e3d94f91cabaa56d6ceed744a0c'
+
+# Run Code Analysis task
+- task: SonarQubeAnalyze@7
+
+# Publish Quality Gate Result task
+- task: SonarQubePublish@7
+  inputs:
+    pollingTimeoutSec: '300'
