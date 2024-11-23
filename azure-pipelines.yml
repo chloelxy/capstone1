@@ -1,0 +1,36 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool: chloePool
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+  # Prepare Analysis Configuration task
+- task: SonarQubePrepare@7
+  inputs:
+    SonarQube: 'chloe-service-connection'
+    scannerMode: 'cli'
+    configMode: 'manual'
+    cliProjectKey: 'CaseSphere_SdipDevSecOps24S2_client_d82aa466-4f47-46e1-ac9b-4272e71146c3'
+
+# Run Code Analysis task
+- task: SonarQubeAnalyze@7
+
+# Publish Quality Gate Result task
+- task: SonarQubePublish@7
+  inputs:
+    pollingTimeoutSec: '300'
