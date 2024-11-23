@@ -16,7 +16,7 @@ steps:
     SonarQube: 'apylteo_sonarqube'
     scannerMode: 'cli'
     configMode: 'manual'
-    cliProjectKey: 'AnaliseCaseSphere'
+    cliProjectKey: 'CaseSphere_SdipDevSecOps24S2_client_d82aa466-4f47-46e1-ac9b-4272e71146c3'
 
 # Run Code Analysis task
 - task: SonarQubeAnalyze@7
