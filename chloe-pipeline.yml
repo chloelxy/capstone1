@@ -29,8 +29,6 @@ steps:
 
 # Run Code Analysis task
 - task: SonarQubeAnalyze@7
-  inputs:
-    jdkversion: 'JAVA_HOME_17_X64'
 
 # Publish Quality Gate Result task
 - task: SonarQubePublish@7
