@@ -16,7 +16,7 @@ steps:
     SonarQube: 'apylteo_sonarqube'
     scannerMode: 'cli'
     configMode: 'manual'
-    cliProjectKey: 'sqa_fccc5970d3773e3d94f91cabaa56d6ceed744a0c'
+    cliProjectKey: 'AnaliseCaseSphere'
 
 # Run Code Analysis task
 - task: SonarQubeAnalyze@7
