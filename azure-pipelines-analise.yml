@@ -9,16 +9,14 @@ steps:
     versionSpec: '20.x'
   displayName: 'Install Node.js'
 
-# Prepare Analysis Configuration task
+
+ # Prepare Analysis Configuration task
 - task: SonarQubePrepare@7
   inputs:
     SonarQube: 'apylteo_sonarqube'
     scannerMode: 'cli'
     configMode: 'manual'
-    cliProjectKey: 'CaseSphere_SdipDevSecOps24S2_client_d82aa466-4f47-46e1-ac9b-4272e71146c3'
-    extraProperties: |
-      sonar.verbose: true
-      sonar.java.jdkHome: 'C:\Program Files\Java\jdk-17'
+    cliProjectKey: 'AnaliseCaseSphere'
 
 # Run Code Analysis task
 - task: SonarQubeAnalyze@7
