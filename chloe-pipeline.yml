@@ -18,3 +18,11 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+  # Prepare Analysis Configuration task
+- task: SonarQubePrepare@7
+  inputs:
+    SonarQube: 'chloe-service-connection'
+    scannerMode: 'cli'
+    configMode: 'manual'
+    cliProjectKey: 'CaseSphere_SdipDevSecOps24S2_client_d82aa466-4f47-46e1-ac9b-4272e71146c3'
